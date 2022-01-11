@@ -1,0 +1,38 @@
+body{
+    background-image: url("../images/image21.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: repeat-y;
+    color:rgb(245, 255, 106); 
+    background-repeat: no-repeat;
+}
+
+.cont{
+    
+    background:rgba(108, 117, 125, 0.5);/*bg-secondary*/  
+    border-radius: 1em;
+    max-width: 25pc;
+}
+
+
+.container{
+    border-radius: 1em;
+}
+
+.tablebase{
+    background:rgba(108, 117, 125, 0.6);/*bg-secondary*/  
+    border-radius: 1em;
+
+}
+
+.tabletop{
+    background:rgba(108, 117, 125, 0.6);/*bg-secondary*/  
+    
+}
+
+#searchspan{
+    clear: left;
+}
+.zhead{
+    width: 100%;
+}

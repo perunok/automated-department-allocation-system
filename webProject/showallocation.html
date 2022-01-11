@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/master.css">
+    <title>Department Allocations</title>
+</head>
+<body>
+    <div class="tabletop navbar mb-2 shadow-lg d-flex flex-fill justifiy-content-center ">
+       
+            <div class="d-flex justify-content-center">
+                <h1 class="p-1 m-2">Department allocation</h1>
+                <div class="float-lg-right mt-3 zhead"><a class="float-lg-right" href="login.html"> <button class="btn btn-outline-warning">login</button></a></div>
+            </div>     
+            <span class="d-block "> <i class=""></i> <input type="text" class="btn btn-outline-warning" placeholder="search your name here"></span>
+        </div>
+
+    <div class="tablebase container  d-flex justify-content-center">
+        <table class="table table-striped table-success table-md-responsive">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>ID</th>
+                    <th>CGPA</th>
+                    <th>Department Given</th>
+                </tr>
+            </thead>
+            <tbody class="">
+                <?php
+                ini_set("display_errors",true);
+                include"php/populate.php";
+
+                
+
+                    
+                ?>
+
+                <tr>
+                    <td><?php echo("yollo"); ?></td>
+                    <td><?php echo("yollo"); ?></td>
+                    <td><?php echo("yollo"); ?></td>
+                    <td><?php echo("yollo"); ?></td>
+                    <td><?php echo("yollo"); ?></td>
+                    <td><?php echo("yollo"); ?></td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+
+</body>
+</html>
