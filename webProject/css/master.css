@@ -1,3 +1,6 @@
+*{
+    box-sizing: border-box;
+}
 body{
     background-image: url("../images/image21.jpg");
     background-size: cover;
@@ -9,7 +12,7 @@ body{
 
 .cont{
     
-    background:rgba(108, 117, 125, 0.5);/*bg-secondary*/  
+    background:rgba(108, 117, 125, 0.4);/*bg-secondary*/  
     border-radius: 1em;
     max-width: 25pc;
 }
@@ -35,4 +38,27 @@ body{
 }
 .zhead{
     width: 100%;
+}
+
+#faildnote{
+   display: grid;
+   align-items: center;
+}
+#faildnote p{
+    color: red;
+    text-align: center;
+    font-style: italic;
+    font-weight: bold;
+    
+}
+.colorize{
+color:rgb(233, 76, 28);
+text-shadow: 5px;
+}
+
+li a{
+    color:rgb(245, 255, 106);
+}
+#brand{
+    position:absolute;
 }

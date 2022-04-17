@@ -1,12 +1,14 @@
 <?php
-
+session_start();
 ini_set("display_errors",true);
 
 $dbusername = "root";
 $dbpassword = "";
 $dbhost = "localhost";
 $dbdb_name = "ADAS";
-$the_query = ("select Password from users where Username = '".$_POST['username']."'");
+$check_query = ("select Password from users where Username = '".$_POST['username']."'");
+$lead_query = ("select Type from users where Username = '".$_POST['username']."'");
+
 
 try {
     $conn = new PDO("mysql:host =localhost; dbname=ADAS", $dbusername , $dbpassword );
@@ -15,17 +17,32 @@ try {
         PDO::ERRMODE_EXCEPTION
     );
 
-    $st = $conn->prepare($the_query);
+    $st = $conn->prepare($check_query);
     $st->execute();
+    $password = $st->fetchColumn();
 
-    $result = $st->fetchColumn();
-    
-    if($_POST['password'] == $result){
-        header("Location: ../showallocation.html");
+    $st = $conn->prepare($lead_query);
+    $st->execute();
+    $user_type = $st->fetchColumn();
+
+    if(md5($_POST['password']) == $password){
+        if($user_type == 'student'){
+            $_SESSION['username'] = $_POST['username'];
+            header("Location: ../ui_studentpanel.php");
+            exit();
+        }elseif ($user_type == 'admin') {
+            $_SESSION['username'] = $_POST['username'];
+            header("Location: ../ui_adminpanel.php");
+            exit();
+        }elseif ($user_type == 'su') {
+            $_SESSION['username'] = $_POST['username'];
+            header("Location: ../ui_sysadminpanel.php");
+            exit();
+        }
     }else{
-       echo('login failed');
+        header("Location: ../ui_login.php?error= Invalid username or password!");
+        exit();
     }
-    
 } catch (PDOException $e) {
 
     echo($e -> getMessage());

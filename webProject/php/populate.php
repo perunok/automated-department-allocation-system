@@ -2,26 +2,16 @@
 
 ini_set("display_errors",true);
 
-$dbusername = "root";
-$dbpassword = "";
-$dbhost = "localhost";
-$dbdb_name = "ADAS";
-
-
-$the_query = ("select * from student_information");
+$the_fetch_query = ("select Firstname,Lastname,ID,Gender,Department from student_information");
 
 try {
-    $conn = new PDO("mysql:host =localhost; dbname=ADAS", $dbusername , $dbpassword );
-    $conn->setAttribute(
-        PDO::ATTR_ERRMODE,
-        PDO::ERRMODE_EXCEPTION
-    );
+    include 'db.php';
 
-    $st = $conn->prepare($the_query);
+    $st = $conn->prepare($the_fetch_query);
     $st->execute();
 
-    $result = $st->fetchAll();
-    
+    $result = $st->fetchAll(PDO::FETCH_ASSOC);
+
 } catch (PDOException $e) {
 
     echo($e -> getMessage());
